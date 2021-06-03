@@ -1,0 +1,14 @@
+from google.colab import auth
+auth.authenticate_user()
+
+# Install and initialize the gcloud command line tool - https://cloud.google.com/sdk/docs/install
+# (this will give you access to gcloud tools within Colab)
+!curl https://sdk.cloud.google.com | bash 1> /dev/null
+!gcloud init
+
+# Copy model to bucket - https://cloud.google.com/storage/docs/uploading-objects#gsutil 
+# Use "-r" for folders (r stands for recursive)
+!gsutil cp -r fixyou_modelv1 gs://fixyou_bucket
+
+
+! dir fixyou_modelv1
